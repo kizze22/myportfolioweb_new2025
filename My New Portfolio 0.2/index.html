@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavishka Kumararathna | Creative Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600;
+            }
+            .glass-effect {
+                backdrop-filter: blur(12px) saturate(180%);
+                -webkit-backdrop-filter: blur(12px) saturate(180%);
+                background-color: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .floating {
+                animation: float 8s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-25px); }
+                100% { transform: translateY(0px); }
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg text-gray-100 font-sans overflow-x-hidden">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 -z-50 overflow-hidden opacity-20">
+        <div class="absolute top-20 left-10 w-64 h-64 rounded-full bg-indigo-600 filter blur-3xl opacity-30 floating" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-purple-600 filter blur-3xl opacity-30 floating" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-effect fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-gradient">Kavishka.</a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="hover:text-indigo-300 transition-colors duration-300">Home</a>
+            <a href="#services" class="hover:text-indigo-300 transition-colors duration-300">Services</a>
+            <a href="#work" class="hover:text-indigo-300 transition-colors duration-300">Work</a>
+            <a href="#contact" class="hover:text-indigo-300 transition-colors duration-300">Contact</a>
+        </div>
+        <button class="md:hidden text-xl" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center hidden">
+        <button class="absolute top-6 right-6 text-2xl" id="menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#home" class="text-3xl hover:text-indigo-400 transition-colors">Home</a>
+            <a href="#services" class="text-3xl hover:text-indigo-400 transition-colors">Services</a>
+            <a href="#work" class="text-3xl hover:text-indigo-400 transition-colors">Work</a>
+            <a href="#contact" class="text-3xl hover:text-indigo-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-6 md:px-12 lg:px-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    Hi, I'm <span class="text-gradient">Kavishka Kumararathna</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-indigo-300">Creative Designer & Digital Artist</h2>
+                <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
+                    I craft visually stunning digital experiences that blend innovation with functionality. 
+                    With a passion for design and attention to detail, I transform ideas into memorable brand identities.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300">
+                        Let's Collaborate
+                    </a>
+                    <a href="#work" class="px-8 py-3 border border-indigo-400 rounded-full font-medium hover:bg-indigo-900/30 transition-all duration-300">
+                        View Portfolio
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="pt-6 flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 transition-colors duration-300 flex items-center justify-center">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-600 transition-colors duration-300 flex items-center justify-center">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-400 transition-colors duration-300 flex items-center justify-center">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Profile Picture Container -->
+            <div class="relative flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <!-- Gradient Border Effect -->
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-20 blur-xl floating"></div>
+                    <div class="absolute inset-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-10 blur-lg floating" style="animation-delay: 1s;"></div>
+                    
+                    <!-- Profile Picture -->
+                    <div class="relative w-full h-full rounded-2xl overflow-hidden border-4 border-indigo-500/20 floating" style="animation-delay: 2s;">
+                        <!-- Replace with your actual profile image -->
+                        <img src="images/resumephoto.jpg" alt="Kavishka Kumararathna" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-gradient">Expertise</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Comprehensive design solutions tailored to elevate your brand and digital presence</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-palette text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
+                <p class="text-gray-300">
+                    Captivating visual identities, logos, and branding materials that make your business stand out in the market.
+                </p>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-laptop-code text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Web Design</h3>
+                <p class="text-gray-300">
+                    Responsive, user-friendly websites that combine aesthetics with seamless functionality and performance.
+                </p>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-mobile-screen text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
+                <p class="text-gray-300">
+                    Intuitive interfaces and engaging user experiences designed to maximize engagement and conversions.
+                </p>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-bullhorn text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Digital Marketing</h3>
+                <p class="text-gray-300">
+                    Strategic online campaigns that drive targeted traffic, engagement, and measurable conversions.
+                </p>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-hashtag text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
+                <p class="text-gray-300">
+                    Consistent, on-brand content strategies that grow your audience and strengthen community engagement.
+                </p>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-indigo-900/20 transition-all duration-300 card-hover">
+                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/40 transition-all duration-300">
+                    <i class="fas fa-pencil-ruler text-2xl text-indigo-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Brand Strategy</h3>
+                <p class="text-gray-300">
+                    Comprehensive brand development from visual identity to market positioning and messaging.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Showcase -->
+    <section id="work" class="py-20 px-6 md:px-12 lg:px-24 bg-gray-800/20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Selected <span class="text-gradient">Projects</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">A showcase of my recent design work and creative projects</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80 card-hover">
+                <img src="images/1.png" alt="Branding Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">Nova Brand Identity</h3>
+                    <p class="text-gray-300 mb-4">Complete visual identity for tech startup</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-indigo-600/30 rounded-full text-sm">Branding</span>
+                        <span class="px-3 py-1 bg-purple-600/30 rounded-full text-sm">Graphic Design</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80 card-hover">
+                <img src="images/image3.jpg" alt="Web Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                    <p class="text-gray-300 mb-4">Modern online store with intuitive UI</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-indigo-600/30 rounded-full text-sm">Web Design</span>
+                        <span class="px-3 py-1 bg-blue-600/30 rounded-full text-sm">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80 card-hover">
+                <img src="images/image4.jpg" alt="Mobile App Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">Fitness Mobile App</h3>
+                    <p class="text-gray-300 mb-4">Workout tracking with social features</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-pink-600/30 rounded-full text-sm">UI/UX</span>
+                        <span class="px-3 py-1 bg-green-600/30 rounded-full text-sm">App Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button class="px-8 py-3 border border-indigo-400 rounded-full font-medium hover:bg-indigo-900/30 transition-all duration-300">
+                View Full Portfolio
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's <span class="text-gradient">Connect</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Have a project in mind or want to discuss potential collaboration?</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold">Contact Information</h3>
+                    <p class="text-gray-300">
+                        I'm available for freelance work and interesting project opportunities. Feel free to reach out!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                                <i class="fas fa-envelope text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:kavishkamalan7@gmail.com" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">kavishkamalan7@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                                <i class="fas fa-phone text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <a href="tel:+94775592321" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">+94 77559 2321</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-400">Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <h4 class="font-medium mb-4">Follow My Work</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-indigo-600 transition-colors duration-300 flex items-center justify-center">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-600 transition-colors duration-300 flex items-center justify-center">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-400 transition-colors duration-300 flex items-center justify-center">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all duration-300"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 lg:px-24 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="text-2xl font-bold text-gradient">Kavishka.</a>
+                <p class="text-gray-400 mt-2">© 2025 All rights reserved</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#home" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">Home</a>
+                <a href="#services" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">Services</a>
+                <a href="#work" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">Work</a>
+                <a href="#contact" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-colors duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        document.getElementById('menu-close').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate hero section
+        gsap.from('#home h1', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.3
+        });
+        
+        gsap.from('#home h2', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.5
+        });
+        
+        gsap.from('#home p', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.7
+        });
+        
+        gsap.from('#home a', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.9,
+            stagger: 0.1
+        });
+        
+        gsap.from('#home .relative img', {
+            duration: 1,
+            scale: 0.8,
+            opacity: 0,
+            ease: 'back.out(1.7)',
+            delay: 0.5
+        });
+        
+        // Animate services
+        gsap.utils.toArray('.glass-effect').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+        
+        // Animate work items
+        gsap.utils.toArray('.group').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>
